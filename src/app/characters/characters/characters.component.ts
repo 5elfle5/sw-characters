@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Person } from 'src/app/shared/models/person.model';
 import { StarWarsService } from '../star-wars.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { StarWarsService } from '../star-wars.service';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
+  people$: Observable<Person[]>;
 
-  data: Observable<string>;
   constructor(
     private starWarsService: StarWarsService,
   ) { }
 
   ngOnInit(): void {
-    this.data = this.starWarsService.getPerson(1);
+    this.people$ = this.starWarsService.getPeople();
   }
 
 }
