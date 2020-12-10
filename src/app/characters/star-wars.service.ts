@@ -11,7 +11,7 @@ export class StarWarsService {
   ) { }
 
   getPerson(id: number): Observable<string> {
-    return this.http.get(`${API_URL}?resource=people%2F${id}`).pipe(
+    return this.http.get(`${API_URL}/?api=people%2F${id}`).pipe(
       tap((x) => { console.debug(x); }),
       map(x => JSON.stringify(x)),
     );
