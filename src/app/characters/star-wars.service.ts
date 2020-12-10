@@ -11,7 +11,7 @@ export class StarWarsService {
   ) { }
 
   getCharacters(): Observable<string> {
-    return this.http.get('/api/people/1').pipe(
+    return this.http.get('/api/?api=people%2F1').pipe(
       tap((x) => { console.debug(x); }),
       map(x => JSON.stringify(x)),
     );
