@@ -11,8 +11,8 @@ var corsOptions = {
 }
 app.use(cors(corsOptions));
 
-app.get('/api/', (req, res) => {
-  const url = 'https://swapi.dev/api/' + req.query.api;
+app.get('/', (req, res) => {
+  const url = 'https://swapi.dev/api/' + req.query.resource;
   fetch(
     url
   )

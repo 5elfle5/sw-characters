@@ -9,15 +9,13 @@ import { StarWarsService } from '../star-wars.service';
 })
 export class CharactersComponent implements OnInit {
 
-  data: string;
+  data: Observable<string>;
   constructor(
     private starWarsService: StarWarsService,
   ) { }
 
   ngOnInit(): void {
-    this.starWarsService.getCharacters().subscribe((response) => {
-      this.data = response;
-    });
+    this.data = this.starWarsService.getPerson(1);
   }
 
 }
